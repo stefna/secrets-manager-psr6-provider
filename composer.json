@@ -1,0 +1,25 @@
+{
+	"name": "stefna/secrets-manager-psr6-provider",
+	"description": "Psr-6 cache provider for secrets manager",
+	"type": "library",
+	"license": "MIT",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"authors": [
+		{
+			"name": "Andreas Sundqvist",
+			"email": "andreas@stefna.is"
+		}
+	],
+	"require": {
+		"php": "^7.1 || ^8.0",
+		"ext-json": "*",
+		"psr/cache": "^1.0.0 || ^3.0.0 || ^2.0.0",
+		"cache/tag-interop": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Stefna\\SecretsManager\\Provider\\Psr6\\": "src/"
+		}
+	}
+}
