@@ -10,25 +10,12 @@ use Stefna\SecretsManager\Values\Secret;
 
 final class Psr6Provider implements ProviderInterface
 {
-	/** @var ProviderInterface */
-	private $provider;
-	/** @var CacheItemPoolInterface */
-	private $cachePool;
-	/** @var array{prefix?: string, ttl?: int, tags?: string[]} */
-	private $cacheOptions;
-
-	/**
-	 * @param array{prefix?: string, ttl?: int, tags?: string[]} $cacheOptions
-	 */
 	public function __construct(
-		ProviderInterface $provider,
-		CacheItemPoolInterface $cachePool,
-		array $cacheOptions = []
-	) {
-		$this->provider = $provider;
-		$this->cachePool = $cachePool;
-		$this->cacheOptions = $cacheOptions;
-	}
+		private ProviderInterface $provider,
+		private CacheItemPoolInterface $cachePool,
+		/** @var array{prefix?: string, ttl?: int, tags?: string[]} */
+		private array $cacheOptions = [],
+	) {}
 
 	public function getSecret(string $key, ?array $options = []): Secret
 	{
